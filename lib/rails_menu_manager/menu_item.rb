@@ -1,4 +1,5 @@
 module RailsMenuManager
+  # Representation of a single menu item
   class MenuItem
     PATH_SEPARATOR = 0x1F.chr
 

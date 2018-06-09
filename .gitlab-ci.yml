@@ -13,10 +13,88 @@ rubocop:
     - bundle install -j $(nproc) --path vendor
     - bundle exec rubocop
 
-rspec-ruby2.2.10-rails4.0:
-  image: ruby:2.2.10-slim
+rspec-ruby2.3.7-rails4.0:
+  image: ruby:2.4.4-slim
   script:
     - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.4.4-rails4.0:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.5.1-rails4.0:
+  image: ruby:2.5.1-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.3.7-rails4.1:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails41 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.4.4-rails4.1:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails41 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.5.1-rails4.1:
+  image: ruby:2.5.1-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails41 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.3.7-rails4.2:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails42 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.4.4-rails4.2:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails42 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.5.1-rails4.2:
+  image: ruby:2.5.1-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails42 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.3.7-rails5.0:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails50 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.4.4-rails5.0:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails50 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.5.1-rails5.0:
+  image: ruby:2.5.1-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails50 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.3.7-rails5.1:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails51 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.4.4-rails5.1:
+  image: ruby:2.4.4-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails51 --path vendor
     - bundle exec rake spec
 
 rspec-ruby2.5.1-rails5.1:

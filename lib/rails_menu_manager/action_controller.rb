@@ -2,6 +2,7 @@ require 'active_support/concern'
 require 'rails_menu_manager/menu_item'
 
 module RailsMenuManager
+  # Menu methods for ActionController
   module ActionController
     extend ActiveSupport::Concern
 
@@ -39,6 +40,7 @@ module RailsMenuManager
       _menu_items << MenuItem.new(path, opts)
     end
 
+    # Class methods for ActionController
     module ClassMethods
       def menu(*args)
         opts = args.extract_options!
