@@ -42,11 +42,3 @@ link_to 'users', users_path, class: in_menu?(:main, :users) ? 'active' : nil
 
 link_to 'users', users_path, class: in_menu?(:sidebar, :users) ? 'active' : nil
 ```
-
-## Contributing
-
-1. Fork it ( https://github.com/ydkn/rails-menu-manager/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request

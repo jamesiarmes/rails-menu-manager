@@ -1,0 +1,26 @@
+cache:
+  paths:
+    - vendor/ruby
+
+before_script:
+  - apt-get update -q && apt-get install git build-essential -yqq
+  - ruby -v
+  - gem install bundler --no-ri --no-rdoc
+
+rubocop:
+  image: ruby:2.5-slim
+  script:
+    - bundle install -j $(nproc) --path vendor
+    - bundle exec rubocop
+
+rspec-ruby2.2.10-rails4.0:
+  image: ruby:2.2.10-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
+    - bundle exec rake spec
+
+rspec-ruby2.5.1-rails5.1:
+  image: ruby:2.5.1-slim
+  script:
+    - bundle install -j $(nproc) --gemfile=gemfiles/rails51 --path vendor
+    - bundle exec rake spec
