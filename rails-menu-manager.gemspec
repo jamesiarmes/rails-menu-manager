@@ -1,5 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'rails_menu_manager/version'
 
@@ -8,10 +7,9 @@ Gem::Specification.new do |spec|
   spec.version       = RailsMenuManager::VERSION
   spec.authors       = ['Florian Schwab']
   spec.email         = ['me@ydkn.de']
-
-  spec.summary       = %q{Simple menu manager for Rails.}
-  spec.description   = %q{Simple menu manager for Rails.}
-  spec.homepage      = 'https://github.com/ydkn/rails-menu-manager'
+  spec.summary       = 'Simple menu manager for Rails.'
+  spec.description   = 'Simple menu manager for Rails.'
+  spec.homepage      = 'https://gitlab.com/ydkn/rails-menu-manager'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

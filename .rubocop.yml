@@ -1,0 +1,6 @@
+Metrics/LineLength:
+  Max: 120
+
+Naming/FileName:
+  Exclude:
+    - 'lib/rails-menu-manager.rb'

@@ -12,7 +12,7 @@ module RailsMenuManager
     def in?(*args)
       return false if path.nil?
 
-      !!(path_as_string(path) =~ /\A#{path_as_string(args)}/i)
+      (path_as_string(path) =~ /\A#{path_as_string(args)}/i)
     end
 
     private

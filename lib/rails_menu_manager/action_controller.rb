@@ -34,7 +34,7 @@ module RailsMenuManager
     def _add_menu_setting(*args)
       opts = args.extract_options!
 
-      path = args.map { |p| p.to_sym }
+      path = args.map(&:to_sym)
 
       _menu_items << MenuItem.new(path, opts)
     end
