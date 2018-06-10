@@ -1,104 +1,104 @@
-cache:
-  paths:
-    - vendor/ruby
-
-before_script:
-  - apt-get update -q && apt-get install git build-essential -yqq
-  - ruby -v
-  - gem install bundler --no-ri --no-rdoc
-
 rubocop:
-  image: ruby:2.5-slim
+  image: ruby:2.5
   script:
-    - bundle install -j $(nproc) --path vendor
-    - bundle exec rubocop
+    - gem install rubocop --no-ri --no-rdoc
+    - rubocop
 
-rspec-ruby2.3.7-rails4.0:
-  image: ruby:2.4.4-slim
+.rspec_default: &rspec_default
+  before_script:
+    - ruby -v
+    - gem install bundler --no-ri --no-rdoc
+    - export BUNDLE_GEMFILE="spec/gemfiles/${RSPEC_GEMFILE}"
+    - echo $BUNDLE_GEMFILE
+    - bundle install --jobs=$(nproc) --path="../../cache/bundle"
+    - bundle list
   script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
     - bundle exec rake spec
+  cache:
+    key: "$CI_JOB_NAME"
+    paths:
+      - cache/
 
 rspec-ruby2.4.4-rails4.0:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.4.4
+  variables:
+    RSPEC_GEMFILE: rails40
 
 rspec-ruby2.5.1-rails4.0:
-  image: ruby:2.5.1-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails40 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.5.1
+  variables:
+    RSPEC_GEMFILE: rails40
 
 rspec-ruby2.3.7-rails4.1:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails41 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.3.7
+  variables:
+    RSPEC_GEMFILE: rails41
 
 rspec-ruby2.4.4-rails4.1:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails41 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.4.4
+  variables:
+    RSPEC_GEMFILE: rails41
 
 rspec-ruby2.5.1-rails4.1:
-  image: ruby:2.5.1-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails41 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.5.1
+  variables:
+    RSPEC_GEMFILE: rails41
 
 rspec-ruby2.3.7-rails4.2:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails42 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.3.7
+  variables:
+    RSPEC_GEMFILE: rails42
 
 rspec-ruby2.4.4-rails4.2:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails42 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.4.4
+  variables:
+    RSPEC_GEMFILE: rails42
 
 rspec-ruby2.5.1-rails4.2:
-  image: ruby:2.5.1-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails42 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.5.1
+  variables:
+    RSPEC_GEMFILE: rails42
 
 rspec-ruby2.3.7-rails5.0:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails50 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.3.7
+  variables:
+    RSPEC_GEMFILE: rails50
 
 rspec-ruby2.4.4-rails5.0:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails50 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.4.4
+  variables:
+    RSPEC_GEMFILE: rails50
 
 rspec-ruby2.5.1-rails5.0:
-  image: ruby:2.5.1-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails50 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.5.1
+  variables:
+    RSPEC_GEMFILE: rails50
 
 rspec-ruby2.3.7-rails5.1:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails51 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.3.7
+  variables:
+    RSPEC_GEMFILE: rails51
 
 rspec-ruby2.4.4-rails5.1:
-  image: ruby:2.4.4-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails51 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.4.4
+  variables:
+    RSPEC_GEMFILE: rails51
 
 rspec-ruby2.5.1-rails5.1:
-  image: ruby:2.5.1-slim
-  script:
-    - bundle install -j $(nproc) --gemfile=gemfiles/rails51 --path vendor
-    - bundle exec rake spec
+  <<: *rspec_default
+  image: ruby:2.5.1
+  variables:
+    RSPEC_GEMFILE: rails51
