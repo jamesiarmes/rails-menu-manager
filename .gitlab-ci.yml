@@ -19,7 +19,7 @@ rubocop:
     - gem install rubocop --no-ri --no-rdoc
     - rubocop
 
-dependency_scanning:
+dependencies:
   stage: test
   dependencies:
     - build
