@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RailsMenuManager
   # Representation of a single menu item
   class MenuItem

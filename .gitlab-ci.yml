@@ -1,4 +1,28 @@
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: ruby:2.5
+  script:
+    - gem install bundler --no-ri --no-rdoc
+    - bundle update
+  artifacts:
+    paths:
+      - Gemfile.lock
+
+rubocop:
+  stage: test
+  image: ruby:2.5
+  script:
+    - gem install rubocop --no-ri --no-rdoc
+    - rubocop
+
 dependency_scanning:
+  stage: test
+  dependencies:
+    - build
   image: docker:stable
   variables:
     DOCKER_DRIVER: overlay2
@@ -13,21 +37,5 @@ dependency_scanning:
         --volume /var/run/docker.sock:/var/run/docker.sock
         "registry.gitlab.com/gitlab-org/security-products/dependency-scanning:$SP_VERSION" /code
   artifacts:
-    paths: [gl-dependency-scanning-report.json]
-
-
-
-security_scanning:
-  image: docker:stable
-  variables:
-    DOCKER_DRIVER: overlay2
-  allow_failure: true
-  services:
-    - docker:stable-dind
-  script:
-    - docker run
-        --volume "$PWD":/code
-        --volume /var/run/docker.sock:/var/run/docker.sock
-        "registry.gitlab.com/gitlab-org/security-products/sast:latest" /app/bin/run /code
-  artifacts:
-    paths: [gl-sast-report.json]
+    paths:
+      - gl-dependency-scanning-report.json

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails/railtie'
 require 'rails_menu_manager/action_controller'
 

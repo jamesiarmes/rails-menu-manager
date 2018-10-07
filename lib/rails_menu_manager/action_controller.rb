@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/concern'
 require 'rails_menu_manager/menu_item'
 
@@ -15,7 +17,7 @@ module RailsMenuManager
     # @param [Array] Menu path to check
     # @return [Boolean] Boolean indicating if at least one menu item is in path
     def in_menu?(*args)
-      _menu_items.any? { |m| m.in?(*args) }
+      rails_menu_manger_items.any? { |m| m.in?(*args) }
     end
 
     # Adds a menu
@@ -23,21 +25,21 @@ module RailsMenuManager
     #
     # @param [Array/Hash] Menu path and options.
     def menu(*args)
-      _add_menu_setting(*args)
+      rails_menu_manger_add_menu_setting(*args)
     end
 
     private
 
-    def _menu_items
-      @_menu_items ||= []
+    def rails_menu_manger_items
+      @rails_menu_manger_items ||= []
     end
 
-    def _add_menu_setting(*args)
+    def rails_menu_manger_add_menu_setting(*args)
       opts = args.extract_options!
 
       path = args.map(&:to_sym)
 
-      _menu_items << MenuItem.new(path, opts)
+      rails_menu_manger_items << MenuItem.new(path, opts)
     end
 
     # Class methods for ActionController
@@ -53,7 +55,7 @@ module RailsMenuManager
         }
 
         before_action before_action_opts do
-          _add_menu_setting(*args, opts)
+          rails_menu_manger_add_menu_setting(*args, opts)
         end
       end
     end
