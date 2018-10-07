@@ -1,6 +1,3 @@
-/.bundle/
+/.bundle
 /Gemfile.lock
-/doc/
-/pkg/
-/spec/reports/
-/tmp/
+/pkg
