@@ -117,7 +117,7 @@ rubocop:
     - gem install rubocop --no-ri --no-rdoc
     - rubocop
 
-dependencies:
+dependency_scanning:
   stage: security
   dependencies:
     - build
