@@ -25,6 +25,10 @@ build:
     - bundle list
   script:
     - bundle exec rake spec
+  cache:
+    key: "$CI_JOB_NAME"
+    paths:
+      - cache/
 
 rspec-ruby2.4.4-rails4.0:
   <<: *rspec
