@@ -30,89 +30,113 @@ build:
     paths:
       - cache/
 
-rspec-ruby2.4.4-rails4.0:
+rspec-ruby2.3.8-rails4.0:
   <<: *rspec
-  image: ruby:2.4.4
+  image: ruby:2.3.8
   variables:
     RSPEC_GEMFILE: rails40
 
-rspec-ruby2.5.1-rails4.0:
+rspec-ruby2.4.5-rails4.0:
   <<: *rspec
-  image: ruby:2.5.1
+  image: ruby:2.4.5
   variables:
     RSPEC_GEMFILE: rails40
 
-rspec-ruby2.3.7-rails4.1:
+rspec-ruby2.5.3-rails4.0:
   <<: *rspec
-  image: ruby:2.3.7
+  image: ruby:2.5.3
+  variables:
+    RSPEC_GEMFILE: rails40
+
+rspec-ruby2.3.8-rails4.1:
+  <<: *rspec
+  image: ruby:2.3.8
   variables:
     RSPEC_GEMFILE: rails41
 
-rspec-ruby2.4.4-rails4.1:
+rspec-ruby2.4.5-rails4.1:
   <<: *rspec
-  image: ruby:2.4.4
+  image: ruby:2.4.5
   variables:
     RSPEC_GEMFILE: rails41
 
-rspec-ruby2.5.1-rails4.1:
+rspec-ruby2.5.3-rails4.1:
   <<: *rspec
-  image: ruby:2.5.1
+  image: ruby:2.5.3
   variables:
     RSPEC_GEMFILE: rails41
 
-rspec-ruby2.3.7-rails4.2:
+rspec-ruby2.3.8-rails4.2:
   <<: *rspec
-  image: ruby:2.3.7
+  image: ruby:2.3.8
   variables:
     RSPEC_GEMFILE: rails42
 
-rspec-ruby2.4.4-rails4.2:
+rspec-ruby2.4.5-rails4.2:
   <<: *rspec
-  image: ruby:2.4.4
+  image: ruby:2.4.5
   variables:
     RSPEC_GEMFILE: rails42
 
-rspec-ruby2.5.1-rails4.2:
+rspec-ruby2.5.3-rails4.2:
   <<: *rspec
-  image: ruby:2.5.1
+  image: ruby:2.5.3
   variables:
     RSPEC_GEMFILE: rails42
 
-rspec-ruby2.3.7-rails5.0:
+rspec-ruby2.3.8-rails5.0:
   <<: *rspec
-  image: ruby:2.3.7
+  image: ruby:2.3.8
   variables:
     RSPEC_GEMFILE: rails50
 
-rspec-ruby2.4.4-rails5.0:
+rspec-ruby2.4.5-rails5.0:
   <<: *rspec
-  image: ruby:2.4.4
+  image: ruby:2.4.5
   variables:
     RSPEC_GEMFILE: rails50
 
-rspec-ruby2.5.1-rails5.0:
+rspec-ruby2.5.3-rails5.0:
   <<: *rspec
-  image: ruby:2.5.1
+  image: ruby:2.5.3
   variables:
     RSPEC_GEMFILE: rails50
 
-rspec-ruby2.3.7-rails5.1:
+rspec-ruby2.3.8-rails5.1:
   <<: *rspec
-  image: ruby:2.3.7
+  image: ruby:2.3.8
   variables:
     RSPEC_GEMFILE: rails51
 
-rspec-ruby2.4.4-rails5.1:
+rspec-ruby2.4.5-rails5.1:
   <<: *rspec
-  image: ruby:2.4.4
+  image: ruby:2.4.5
   variables:
     RSPEC_GEMFILE: rails51
 
-rspec-ruby2.5.1-rails5.1:
+rspec-ruby2.5.3-rails5.1:
   <<: *rspec
-  image: ruby:2.5.1
+  image: ruby:2.5.3
   variables:
     RSPEC_GEMFILE: rails51
+
+rspec-ruby2.3.8-rails5.2:
+  <<: *rspec
+  image: ruby:2.3.8
+  variables:
+    RSPEC_GEMFILE: rails52
+
+rspec-ruby2.4.5-rails5.2:
+  <<: *rspec
+  image: ruby:2.4.5
+  variables:
+    RSPEC_GEMFILE: rails52
+
+rspec-ruby2.5.3-rails5.2:
+  <<: *rspec
+  image: ruby:2.5.3
+  variables:
+    RSPEC_GEMFILE: rails52
 
 rubocop:
   stage: codequality
