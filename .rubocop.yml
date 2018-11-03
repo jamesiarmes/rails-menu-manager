@@ -1,6 +1,10 @@
 AllCops:
   TargetRubyVersion: 2.3
 
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
 Metrics/LineLength:
   Max: 120
 
