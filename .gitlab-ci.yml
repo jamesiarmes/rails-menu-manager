@@ -6,9 +6,9 @@ stages:
 
 build:
   stage: build
-  image: ruby:2.5
+  image: ruby:2.6
   script:
-    - gem install bundler --no-ri --no-rdoc
+    - gem install bundler --no-document
     - bundle update
   artifacts:
     paths:
@@ -18,9 +18,9 @@ build:
   stage: test
   before_script:
     - ruby -v
-    - gem install bundler --no-ri --no-rdoc
-    - export BUNDLE_GEMFILE="spec/gemfiles/${RSPEC_GEMFILE}"
-    - echo $BUNDLE_GEMFILE
+    - gem install bundler --no-document
+    - echo "Rails version: #{RSPEC_RAILS_VERSION}"
+    - export BUNDLE_GEMFILE="spec/Gemfile"
     - bundle install --jobs=$(nproc) --path="../../cache/bundle"
     - bundle list
   script:
@@ -30,119 +30,77 @@ build:
     paths:
       - cache/
 
-rspec-ruby2.3.8-rails4.0:
+rspec-ruby2.4-rails4.2:
   <<: *rspec
-  image: ruby:2.3.8
+  image: ruby:2.4
   variables:
-    RSPEC_GEMFILE: rails40
+    RSPEC_RAILS_VERSION: '4.2'
 
-rspec-ruby2.4.5-rails4.0:
+rspec-ruby2.5-rails4.2:
   <<: *rspec
-  image: ruby:2.4.5
+  image: ruby:2.5
   variables:
-    RSPEC_GEMFILE: rails40
+    RSPEC_RAILS_VERSION: '4.2'
 
-rspec-ruby2.5.3-rails4.0:
+rspec-ruby2.4-rails5.0:
   <<: *rspec
-  image: ruby:2.5.3
+  image: ruby:2.4
   variables:
-    RSPEC_GEMFILE: rails40
+    RSPEC_RAILS_VERSION: '5.0'
 
-rspec-ruby2.3.8-rails4.1:
+rspec-ruby2.5-rails5.0:
   <<: *rspec
-  image: ruby:2.3.8
+  image: ruby:2.5
   variables:
-    RSPEC_GEMFILE: rails41
+    RSPEC_RAILS_VERSION: '5.0'
 
-rspec-ruby2.4.5-rails4.1:
+rspec-ruby2.6-rails5.0:
   <<: *rspec
-  image: ruby:2.4.5
+  image: ruby:2.6
   variables:
-    RSPEC_GEMFILE: rails41
+    RSPEC_RAILS_VERSION: '5.0'
 
-rspec-ruby2.5.3-rails4.1:
+rspec-ruby2.4-rails5.1:
   <<: *rspec
-  image: ruby:2.5.3
+  image: ruby:2.4
   variables:
-    RSPEC_GEMFILE: rails41
+    RSPEC_RAILS_VERSION: '5.1'
 
-rspec-ruby2.3.8-rails4.2:
+rspec-ruby2.5-rails5.1:
   <<: *rspec
-  image: ruby:2.3.8
+  image: ruby:2.5
   variables:
-    RSPEC_GEMFILE: rails42
+    RSPEC_RAILS_VERSION: '5.1'
 
-rspec-ruby2.4.5-rails4.2:
+rspec-ruby2.6-rails5.1:
   <<: *rspec
-  image: ruby:2.4.5
+  image: ruby:2.6
   variables:
-    RSPEC_GEMFILE: rails42
+    RSPEC_RAILS_VERSION: '5.1'
 
-rspec-ruby2.5.3-rails4.2:
+rspec-ruby2.4-rails5.2:
   <<: *rspec
-  image: ruby:2.5.3
+  image: ruby:2.4
   variables:
-    RSPEC_GEMFILE: rails42
+    RSPEC_RAILS_VERSION: '5.2'
 
-rspec-ruby2.3.8-rails5.0:
+rspec-ruby2.5-rails5.2:
   <<: *rspec
-  image: ruby:2.3.8
+  image: ruby:2.5
   variables:
-    RSPEC_GEMFILE: rails50
+    RSPEC_RAILS_VERSION: '5.2'
 
-rspec-ruby2.4.5-rails5.0:
+rspec-ruby2.6-rails5.2:
   <<: *rspec
-  image: ruby:2.4.5
+  image: ruby:2.6
   variables:
-    RSPEC_GEMFILE: rails50
-
-rspec-ruby2.5.3-rails5.0:
-  <<: *rspec
-  image: ruby:2.5.3
-  variables:
-    RSPEC_GEMFILE: rails50
-
-rspec-ruby2.3.8-rails5.1:
-  <<: *rspec
-  image: ruby:2.3.8
-  variables:
-    RSPEC_GEMFILE: rails51
-
-rspec-ruby2.4.5-rails5.1:
-  <<: *rspec
-  image: ruby:2.4.5
-  variables:
-    RSPEC_GEMFILE: rails51
-
-rspec-ruby2.5.3-rails5.1:
-  <<: *rspec
-  image: ruby:2.5.3
-  variables:
-    RSPEC_GEMFILE: rails51
-
-rspec-ruby2.3.8-rails5.2:
-  <<: *rspec
-  image: ruby:2.3.8
-  variables:
-    RSPEC_GEMFILE: rails52
-
-rspec-ruby2.4.5-rails5.2:
-  <<: *rspec
-  image: ruby:2.4.5
-  variables:
-    RSPEC_GEMFILE: rails52
-
-rspec-ruby2.5.3-rails5.2:
-  <<: *rspec
-  image: ruby:2.5.3
-  variables:
-    RSPEC_GEMFILE: rails52
+    RSPEC_RAILS_VERSION: '5.2'
 
 rubocop:
   stage: codequality
-  image: ruby:2.5
+  image: ruby:2.6
   script:
-    - gem install rubocop --no-ri --no-rdoc
+    - gem install rubocop rubocop-performance --no-document
     - rubocop
 
 dependency_scanning:
