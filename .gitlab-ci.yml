@@ -18,8 +18,8 @@ build:
   stage: test
   before_script:
     - ruby -v
+    - echo "${RSPEC_RAILS_VERSION}"
     - gem install bundler --no-document
-    - echo "Rails version: #{RSPEC_RAILS_VERSION}"
     - export BUNDLE_GEMFILE="spec/Gemfile"
     - bundle install --jobs=$(nproc) --path="../../cache/bundle"
     - bundle list
