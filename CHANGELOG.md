@@ -1,15 +1,21 @@
-# Change Log
+# Changelog
+All notable changes to this project will be documented in this file.
 
-## 0.3.1 (2016-09-26)
-### Fixes
-- Prevent menu items from being highlighted which have the same last path element as other menu items
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.3.0 (2016-07-07)
-### Changes
-- Rails 5.0 support
+## [Unreleased]
 
-## 0.2.0 (2015-04-20) (initial release)
-### Changes
-- Renamed namespace from Rails::Menu::Manager to RailsMenuManager
+## [0.3.1] - 2016-09-26
+### Fixed
+- prevent menu items from being highlighted which have the same last path element as other menu items
 
-## 0.1.0 (2015-04-20) (initial release)
+## [0.3.0] - 2016-07-07
+### Changed
+- rails 5.0 support
+
+## [0.2.0] - 2015-04-20
+### Changed
+- renamed namespace from Rails::Menu::Manager to RailsMenuManager
+
+## [0.1.0] - 2015-04-20
