@@ -21,7 +21,7 @@ build:
     - echo "${RSPEC_RAILS_VERSION}"
     - gem install bundler -v "~>${BUNDLER_VERSION:-2.0}" --no-document
     - export BUNDLE_GEMFILE="spec/Gemfile"
-    - bundle install --jobs=$(nproc) --path="cache/bundle"
+    - bundle install --jobs=$(nproc) --path="../cache/bundle"
     - bundle list
   script:
     - bundle exec rake spec
