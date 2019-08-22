@@ -19,9 +19,9 @@ build:
   before_script:
     - ruby -v
     - echo "${RSPEC_RAILS_VERSION}"
-    - gem install bundler --no-document
+    - gem install bundler -v "~>${BUNDLER_VERSION:-2.0}" --no-document
     - export BUNDLE_GEMFILE="spec/Gemfile"
-    - bundle install --jobs=$(nproc) --path="../../cache/bundle"
+    - bundle install --jobs=$(nproc) --path="cache/bundle"
     - bundle list
   script:
     - bundle exec rake spec
@@ -34,12 +34,14 @@ rspec-ruby2.4-rails4.2:
   <<: *rspec
   image: ruby:2.4
   variables:
+    BUNDLER_VERSION: '1.7'
     RSPEC_RAILS_VERSION: '4.2'
 
 rspec-ruby2.5-rails4.2:
   <<: *rspec
   image: ruby:2.5
   variables:
+    BUNDLER_VERSION: '1.7'
     RSPEC_RAILS_VERSION: '4.2'
 
 rspec-ruby2.4-rails5.0:
