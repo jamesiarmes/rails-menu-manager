@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Set supported ruby versions to >= 2.4.0
 
+### Fixed
+- support for Rails 6.0.X
+
 ## [0.4.0] - 2019-08-22
 ### Added
 - support for Rails 6.0
