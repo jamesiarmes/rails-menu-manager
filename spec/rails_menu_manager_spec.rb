@@ -5,7 +5,7 @@ require 'action_controller'
 
 describe RailsMenuManager do
   before do
-    ActionController::Base.send(:include, RailsMenuManager::ActionController)
+    ActionController::Base.include(RailsMenuManager::ActionController)
   end
 
   it 'has a version number' do

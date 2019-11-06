@@ -7,7 +7,7 @@ module RailsMenuManager
   # Railtie which will register and set up the menu manager
   class Railtie < Rails::Railtie
     initializer 'rails-menu-manager' do
-      ::ActionController::Base.send(:include, RailsMenuManager::ActionController)
+      ::ActionController::Base.include(RailsMenuManager::ActionController)
     end
   end
 end
