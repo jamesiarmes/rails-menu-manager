@@ -110,6 +110,18 @@ rspec-ruby2.6-rails6.0:
   variables:
     RSPEC_RAILS_VERSION: '6.0'
 
+rspec-ruby2.5-rails6.1:
+  <<: *rspec
+  image: ruby:2.5
+  variables:
+    RSPEC_RAILS_VERSION: '6.1'
+
+rspec-ruby2.6-rails6.1:
+  <<: *rspec
+  image: ruby:2.6
+  variables:
+    RSPEC_RAILS_VERSION: '6.1'
+
 rubocop:
   stage: codequality
   image: ruby:2.6
