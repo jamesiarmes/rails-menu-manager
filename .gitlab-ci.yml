@@ -122,6 +122,18 @@ rspec-ruby2.6-rails6.1:
   variables:
     RSPEC_RAILS_VERSION: '6.1'
 
+rspec-ruby2.7-rails7.0:
+  <<: *rspec
+  image: ruby:2.7
+  variables:
+    RSPEC_RAILS_VERSION: '7.0'
+
+rspec-ruby3.0-rails7.0:
+  <<: *rspec
+  image: ruby:3.0
+  variables:
+    RSPEC_RAILS_VERSION: '7.0'
+
 rubocop:
   stage: codequality
   image: ruby:2.6
