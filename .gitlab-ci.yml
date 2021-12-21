@@ -30,26 +30,6 @@ build:
     paths:
       - cache/
 
-rspec-ruby2.4-rails4.2:
-  <<: *rspec
-  image: ruby:2.4
-  variables:
-    BUNDLER_VERSION: '1.7'
-    RSPEC_RAILS_VERSION: '4.2'
-
-rspec-ruby2.5-rails4.2:
-  <<: *rspec
-  image: ruby:2.5
-  variables:
-    BUNDLER_VERSION: '1.7'
-    RSPEC_RAILS_VERSION: '4.2'
-
-rspec-ruby2.4-rails5.0:
-  <<: *rspec
-  image: ruby:2.4
-  variables:
-    RSPEC_RAILS_VERSION: '5.0'
-
 rspec-ruby2.5-rails5.0:
   <<: *rspec
   image: ruby:2.5
@@ -62,12 +42,6 @@ rspec-ruby2.6-rails5.0:
   variables:
     RSPEC_RAILS_VERSION: '5.0'
 
-rspec-ruby2.4-rails5.1:
-  <<: *rspec
-  image: ruby:2.4
-  variables:
-    RSPEC_RAILS_VERSION: '5.1'
-
 rspec-ruby2.5-rails5.1:
   <<: *rspec
   image: ruby:2.5
@@ -79,12 +53,6 @@ rspec-ruby2.6-rails5.1:
   image: ruby:2.6
   variables:
     RSPEC_RAILS_VERSION: '5.1'
-
-rspec-ruby2.4-rails5.2:
-  <<: *rspec
-  image: ruby:2.4
-  variables:
-    RSPEC_RAILS_VERSION: '5.2'
 
 rspec-ruby2.5-rails5.2:
   <<: *rspec
@@ -121,6 +89,18 @@ rspec-ruby2.6-rails6.1:
   image: ruby:2.6
   variables:
     RSPEC_RAILS_VERSION: '6.1'
+
+rspec-ruby2.7-rails7.0:
+  <<: *rspec
+  image: ruby:2.7
+  variables:
+    RSPEC_RAILS_VERSION: '7.0'
+
+rspec-ruby3.0-rails7.0:
+  <<: *rspec
+  image: ruby:3.0
+  variables:
+    RSPEC_RAILS_VERSION: '7.0'
 
 rubocop:
   stage: codequality
