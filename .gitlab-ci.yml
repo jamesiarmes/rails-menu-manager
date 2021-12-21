@@ -1,8 +1,18 @@
 stages:
+  - security
   - build
   - test
   - codequality
-  - security
+  - release
+
+sast:
+  stage: security
+
+dependency_scanning:
+  stage: security
+
+secret_detection:
+  stage: security
 
 build:
   stage: build
@@ -34,73 +44,73 @@ rspec-ruby2.5-rails5.0:
   <<: *rspec
   image: ruby:2.5
   variables:
-    RSPEC_RAILS_VERSION: '5.0'
+    RSPEC_RAILS_VERSION: "5.0"
 
 rspec-ruby2.6-rails5.0:
   <<: *rspec
   image: ruby:2.6
   variables:
-    RSPEC_RAILS_VERSION: '5.0'
+    RSPEC_RAILS_VERSION: "5.0"
 
 rspec-ruby2.5-rails5.1:
   <<: *rspec
   image: ruby:2.5
   variables:
-    RSPEC_RAILS_VERSION: '5.1'
+    RSPEC_RAILS_VERSION: "5.1"
 
 rspec-ruby2.6-rails5.1:
   <<: *rspec
   image: ruby:2.6
   variables:
-    RSPEC_RAILS_VERSION: '5.1'
+    RSPEC_RAILS_VERSION: "5.1"
 
 rspec-ruby2.5-rails5.2:
   <<: *rspec
   image: ruby:2.5
   variables:
-    RSPEC_RAILS_VERSION: '5.2'
+    RSPEC_RAILS_VERSION: "5.2"
 
 rspec-ruby2.6-rails5.2:
   <<: *rspec
   image: ruby:2.6
   variables:
-    RSPEC_RAILS_VERSION: '5.2'
+    RSPEC_RAILS_VERSION: "5.2"
 
 rspec-ruby2.5-rails6.0:
   <<: *rspec
   image: ruby:2.5
   variables:
-    RSPEC_RAILS_VERSION: '6.0'
+    RSPEC_RAILS_VERSION: "6.0"
 
 rspec-ruby2.6-rails6.0:
   <<: *rspec
   image: ruby:2.6
   variables:
-    RSPEC_RAILS_VERSION: '6.0'
+    RSPEC_RAILS_VERSION: "6.0"
 
 rspec-ruby2.5-rails6.1:
   <<: *rspec
   image: ruby:2.5
   variables:
-    RSPEC_RAILS_VERSION: '6.1'
+    RSPEC_RAILS_VERSION: "6.1"
 
 rspec-ruby2.6-rails6.1:
   <<: *rspec
   image: ruby:2.6
   variables:
-    RSPEC_RAILS_VERSION: '6.1'
+    RSPEC_RAILS_VERSION: "6.1"
 
 rspec-ruby2.7-rails7.0:
   <<: *rspec
   image: ruby:2.7
   variables:
-    RSPEC_RAILS_VERSION: '7.0'
+    RSPEC_RAILS_VERSION: "7.0"
 
 rspec-ruby3.0-rails7.0:
   <<: *rspec
   image: ruby:3.0
   variables:
-    RSPEC_RAILS_VERSION: '7.0'
+    RSPEC_RAILS_VERSION: "7.0"
 
 rubocop:
   stage: codequality
@@ -108,3 +118,13 @@ rubocop:
   script:
     - gem install rubocop rubocop-performance --no-document
     - rubocop
+
+release:
+  stage: release
+  image: ruby:3.0
+  script:
+    - gem install bundler --no-document
+    - bundle update
+    - rake release
+  only:
+    - tags
