@@ -16,7 +16,7 @@ secret_detection:
 
 build:
   stage: build
-  image: ruby:2.6
+  image: ruby:3.2
   script:
     - gem install bundler --no-document
     - bundle update
