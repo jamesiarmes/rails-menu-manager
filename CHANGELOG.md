@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- set supported ruby versions to >= 2.7.0 (required for rubocop, anyway legacy)
+- set supported rails versions to >= 6.1.0
+
+### Removed
+
+- support for Rails < 6.1
+- support for Ruby < 2.7
+
 ## [0.6.0] - 2020-12-21
 
 ### Added
