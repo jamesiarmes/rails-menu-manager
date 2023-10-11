@@ -16,7 +16,7 @@ secret_detection:
 
 build:
   stage: build
-  image: ruby:2.6
+  image: ruby:3.2
   script:
     - gem install bundler --no-document
     - bundle update
@@ -40,63 +40,9 @@ build:
     paths:
       - cache/
 
-rspec-ruby2.5-rails5.0:
+rspec-ruby2.7-rails6.1:
   <<: *rspec
-  image: ruby:2.5
-  variables:
-    RSPEC_RAILS_VERSION: "5.0"
-
-rspec-ruby2.6-rails5.0:
-  <<: *rspec
-  image: ruby:2.6
-  variables:
-    RSPEC_RAILS_VERSION: "5.0"
-
-rspec-ruby2.5-rails5.1:
-  <<: *rspec
-  image: ruby:2.5
-  variables:
-    RSPEC_RAILS_VERSION: "5.1"
-
-rspec-ruby2.6-rails5.1:
-  <<: *rspec
-  image: ruby:2.6
-  variables:
-    RSPEC_RAILS_VERSION: "5.1"
-
-rspec-ruby2.5-rails5.2:
-  <<: *rspec
-  image: ruby:2.5
-  variables:
-    RSPEC_RAILS_VERSION: "5.2"
-
-rspec-ruby2.6-rails5.2:
-  <<: *rspec
-  image: ruby:2.6
-  variables:
-    RSPEC_RAILS_VERSION: "5.2"
-
-rspec-ruby2.5-rails6.0:
-  <<: *rspec
-  image: ruby:2.5
-  variables:
-    RSPEC_RAILS_VERSION: "6.0"
-
-rspec-ruby2.6-rails6.0:
-  <<: *rspec
-  image: ruby:2.6
-  variables:
-    RSPEC_RAILS_VERSION: "6.0"
-
-rspec-ruby2.5-rails6.1:
-  <<: *rspec
-  image: ruby:2.5
-  variables:
-    RSPEC_RAILS_VERSION: "6.1"
-
-rspec-ruby2.6-rails6.1:
-  <<: *rspec
-  image: ruby:2.6
+  image: ruby:2.7
   variables:
     RSPEC_RAILS_VERSION: "6.1"
 
@@ -112,9 +58,27 @@ rspec-ruby3.0-rails7.0:
   variables:
     RSPEC_RAILS_VERSION: "7.0"
 
+rspec-ruby2.7-rails7.1:
+  <<: *rspec
+  image: ruby:2.7
+  variables:
+    RSPEC_RAILS_VERSION: "7.1"
+
+rspec-ruby3.0-rails7.1:
+  <<: *rspec
+  image: ruby:3.0
+  variables:
+    RSPEC_RAILS_VERSION: "7.1"
+
+rspec-ruby3.2-rails7.1:
+  <<: *rspec
+  image: ruby:3.2
+  variables:
+    RSPEC_RAILS_VERSION: "7.1"
+
 rubocop:
   stage: codequality
-  image: ruby:2.6
+  image: ruby:2.7
   script:
     - gem install rubocop rubocop-performance --no-document
     - rubocop
