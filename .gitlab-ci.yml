@@ -40,29 +40,17 @@ build:
     paths:
       - cache/
 
-rspec-ruby2.7-rails6.1:
+rspec-ruby3.0-rails6.1:
   <<: *rspec
-  image: ruby:2.7
+  image: ruby:3.0
   variables:
     RSPEC_RAILS_VERSION: "6.1"
-
-rspec-ruby2.7-rails7.0:
-  <<: *rspec
-  image: ruby:2.7
-  variables:
-    RSPEC_RAILS_VERSION: "7.0"
 
 rspec-ruby3.0-rails7.0:
   <<: *rspec
   image: ruby:3.0
   variables:
     RSPEC_RAILS_VERSION: "7.0"
-
-rspec-ruby2.7-rails7.1:
-  <<: *rspec
-  image: ruby:2.7
-  variables:
-    RSPEC_RAILS_VERSION: "7.1"
 
 rspec-ruby3.0-rails7.1:
   <<: *rspec

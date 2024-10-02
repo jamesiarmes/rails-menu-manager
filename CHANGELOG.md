@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CI: Use bundler 2.4
 - CI: Use Ruby 3.0 for rubocop
+- drop support for ruby < 3.0
 
 ## [0.7.0] - 2023-10-29
 
