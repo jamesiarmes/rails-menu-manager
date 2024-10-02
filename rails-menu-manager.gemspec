@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 3.0.0'
 
-  spec.add_dependency 'railties', '>= 6.1', '< 8'
+  spec.add_dependency 'railties', '>= 6.1', '< 8.1'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'

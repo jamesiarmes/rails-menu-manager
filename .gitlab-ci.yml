@@ -76,6 +76,12 @@ rspec-ruby3.3-rails7.2:
   variables:
     RSPEC_RAILS_VERSION: "7.2"
 
+rspec-ruby3.3-rails8.0:
+  <<: *rspec
+  image: ruby:3.3
+  variables:
+    RSPEC_RAILS_VERSION: "8.0"
+
 rubocop:
   stage: codequality
   image: ruby:3.0
