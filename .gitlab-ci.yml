@@ -80,7 +80,7 @@ rubocop:
   stage: codequality
   image: ruby:3.0
   script:
-    - gem install rubocop rubocop-performance --no-document
+    - gem install rubocop rubocop-performance rubocop-rails rubocop-rspec --no-document
     - rubocop
 
 release:

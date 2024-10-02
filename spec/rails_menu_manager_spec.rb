@@ -9,11 +9,11 @@ describe RailsMenuManager do
   end
 
   it 'has a version number' do
-    expect(RailsMenuManager::VERSION).not_to be nil
+    expect(RailsMenuManager::VERSION).not_to be_nil
   end
 
   it 'adds menu method to ActionController::Base' do
-    ActionController::Base.new.menu(:foo, :bar)
+    expect { ActionController::Base.new.menu(:foo, :bar) }.not_to raise_error
   end
 
   it 'is in menu' do
