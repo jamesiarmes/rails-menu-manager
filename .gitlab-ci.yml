@@ -29,7 +29,7 @@ build:
   before_script:
     - ruby -v
     - echo "${RSPEC_RAILS_VERSION}"
-    - gem install bundler -v "~>${BUNDLER_VERSION:-2.0}" --no-document
+    - gem install bundler -v "~>${BUNDLER_VERSION:-2.4}" --no-document
     - export BUNDLE_GEMFILE="spec/Gemfile"
     - bundle install --jobs=$(nproc) --path="../cache/bundle"
     - bundle list
