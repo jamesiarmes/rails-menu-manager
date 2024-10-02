@@ -78,7 +78,7 @@ rspec-ruby3.2-rails7.1:
 
 rubocop:
   stage: codequality
-  image: ruby:2.7
+  image: ruby:3.0
   script:
     - gem install rubocop rubocop-performance --no-document
     - rubocop
