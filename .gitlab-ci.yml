@@ -16,7 +16,7 @@ secret_detection:
 
 build:
   stage: build
-  image: ruby:3.2
+  image: ruby:3.3
   script:
     - gem install bundler --no-document
     - bundle update
@@ -29,7 +29,7 @@ build:
   before_script:
     - ruby -v
     - echo "${RSPEC_RAILS_VERSION}"
-    - gem install bundler -v "~>${BUNDLER_VERSION:-2.0}" --no-document
+    - gem install bundler -v "~>${BUNDLER_VERSION:-2.4}" --no-document
     - export BUNDLE_GEMFILE="spec/Gemfile"
     - bundle install --jobs=$(nproc) --path="../cache/bundle"
     - bundle list
@@ -40,29 +40,17 @@ build:
     paths:
       - cache/
 
-rspec-ruby2.7-rails6.1:
+rspec-ruby3.0-rails6.1:
   <<: *rspec
-  image: ruby:2.7
+  image: ruby:3.0
   variables:
     RSPEC_RAILS_VERSION: "6.1"
-
-rspec-ruby2.7-rails7.0:
-  <<: *rspec
-  image: ruby:2.7
-  variables:
-    RSPEC_RAILS_VERSION: "7.0"
 
 rspec-ruby3.0-rails7.0:
   <<: *rspec
   image: ruby:3.0
   variables:
     RSPEC_RAILS_VERSION: "7.0"
-
-rspec-ruby2.7-rails7.1:
-  <<: *rspec
-  image: ruby:2.7
-  variables:
-    RSPEC_RAILS_VERSION: "7.1"
 
 rspec-ruby3.0-rails7.1:
   <<: *rspec
@@ -76,16 +64,34 @@ rspec-ruby3.2-rails7.1:
   variables:
     RSPEC_RAILS_VERSION: "7.1"
 
+rspec-ruby3.2-rails7.2:
+  <<: *rspec
+  image: ruby:3.2
+  variables:
+    RSPEC_RAILS_VERSION: "7.2"
+
+rspec-ruby3.3-rails7.2:
+  <<: *rspec
+  image: ruby:3.3
+  variables:
+    RSPEC_RAILS_VERSION: "7.2"
+
+rspec-ruby3.3-rails8.0:
+  <<: *rspec
+  image: ruby:3.3
+  variables:
+    RSPEC_RAILS_VERSION: "8.0"
+
 rubocop:
   stage: codequality
-  image: ruby:2.7
+  image: ruby:3.0
   script:
-    - gem install rubocop rubocop-performance --no-document
+    - gem install rubocop rubocop-performance rubocop-rails rubocop-rspec --no-document
     - rubocop
 
 release:
   stage: release
-  image: ruby:3.0
+  image: ruby:3.3
   script:
     - gem install bundler --no-document
     - bundle update

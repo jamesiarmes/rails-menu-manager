@@ -1,8 +1,11 @@
 require:
   - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
+  NewCops: disable
 
 Layout/HashAlignment:
   EnforcedHashRocketStyle: table
@@ -14,3 +17,6 @@ Layout/LineLength:
 Naming/FileName:
   Exclude:
     - 'lib/rails-menu-manager.rb'
+
+RSpec/MultipleExpectations:
+  Max: 3

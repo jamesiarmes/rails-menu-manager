@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- support for Rails 7.2 & 8.0
+
+### Changed
+
+- CI: Use bundler 2.4
+- CI: Use Ruby 3.0 for rubocop
+- CI: Use Ruby 3.3 for build & release
+- drop support for ruby < 3.0
+
+## [0.7.0] - 2023-10-29
+
+### Added
 
 - support for Rails 7.1
 - extend test matrix with ruby 3.2
